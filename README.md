@@ -1,4 +1,4 @@
-# Title
+# 25 + 5 Timer
 
 [![GitHub version](https://img.shields.io/badge/version-v1.0.0-blue.svg)](https://github.com/davidkuyk/25plus5timer)
 [![License](https://img.shields.io/github/license/davidkuyk/25plus5timer.svg)](https://github.com/davidkuyk/25plus5timer/blob/main/LICENSE)
@@ -7,7 +7,7 @@ A simple Pomodoro-style timer built with React.js
 
 ## Table of Contents
 
-- [Title](#title)
+- [25 + 5 Timer](#25--5-timer)
   - [Table of Contents](#table-of-contents)
   - [Future Feature Ideas](#future-feature-ideas)
   - [Installation](#installation)

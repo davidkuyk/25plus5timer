@@ -5,67 +5,51 @@ class Timer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-
   }
 
   render() {
-    return /*#__PURE__*/(
-      React.createElement("div", { id: "session-timer" }, /*#__PURE__*/
-      React.createElement("div", { id: "timer" }, /*#__PURE__*/
-      React.createElement("div", { id: "timer-label" }, this.props.timerLabel), /*#__PURE__*/
-      React.createElement("div", { id: "time-left" }, /*#__PURE__*/React.createElement("span", { id: "hanging zero", style: { display: this.props.currentLength < 10 ? "inline" : "none" } }, "0"), this.props.currentLength, ":", this.props.secondsLeft, this.props.secondsRight), /*#__PURE__*/
-      React.createElement("div", { id: "timer-selector" }, /*#__PURE__*/
-      React.createElement("i", { id: "start_stop", class: this.props.playing ? 'fas fa-play-circle' : 'fas fa-pause-circle', onClick: this.props.startStop }), /*#__PURE__*/
-      React.createElement("i", { id: "reset", class: "fas fa-redo", onClick: this.props.reset }), /*#__PURE__*/
+    return (
+      React.createElement("div", { id: "session-timer" }, 
+      React.createElement("div", { id: "timer" }, 
+      React.createElement("div", { id: "timer-label" }, this.props.timerLabel), 
+      React.createElement("div", { id: "time-left" }, React.createElement("span", { id: "hanging zero", style: { display: this.props.currentLength < 10 ? "inline" : "none" } }, "0"), this.props.currentLength, ":", this.props.secondsLeft, this.props.secondsRight), 
+      React.createElement("div", { id: "timer-selector" }, 
+      React.createElement("i", { id: "start_stop", class: this.props.playing ? 'fas fa-play-circle' : 'fas fa-pause-circle', onClick: this.props.startStop }), 
+      React.createElement("i", { id: "reset", class: "fas fa-redo", onClick: this.props.reset }), 
       React.createElement("audio", { id: "beep", src: "https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav" })))));
-
-
-
-
   }}
-
 
 class Session extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-
   }
 
   render() {
-    return /*#__PURE__*/(
-      React.createElement("div", { id: "session" }, /*#__PURE__*/
-      React.createElement("div", { id: "session-label" }, "session length"), /*#__PURE__*/
-      React.createElement("div", { id: "session-selector" }, /*#__PURE__*/
-      React.createElement("i", { id: "session-decrement", class: "fas fa-chevron-circle-down", onClick: this.props.sessionDecrement }), /*#__PURE__*/
-      React.createElement("div", { id: "session-length" }, this.props.sessionLength), /*#__PURE__*/
+    return (
+      React.createElement("div", { id: "session" }, 
+      React.createElement("div", { id: "session-label" }, "session length"), 
+      React.createElement("div", { id: "session-selector" }, 
+      React.createElement("i", { id: "session-decrement", class: "fas fa-chevron-circle-down", onClick: this.props.sessionDecrement }), 
+      React.createElement("div", { id: "session-length" }, this.props.sessionLength), 
       React.createElement("i", { id: "session-increment", class: "fas fa-chevron-circle-up", onClick: this.props.sessionIncrement }))));
-
-
-
   }}
 
 class Break extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-
-
   }
 
   render() {
-    return /*#__PURE__*/(
-      React.createElement("div", { id: "break" }, /*#__PURE__*/
-      React.createElement("div", { id: "break-label" }, "break length"), /*#__PURE__*/
-      React.createElement("div", { id: "break-selector" }, /*#__PURE__*/
-      React.createElement("i", { id: "break-decrement", class: "fas fa-chevron-circle-down", onClick: this.props.breakDecrement }), /*#__PURE__*/
-      React.createElement("div", { id: "break-length" }, this.props.breakLength), /*#__PURE__*/
+    return (
+      React.createElement("div", { id: "break" }, 
+      React.createElement("div", { id: "break-label" }, "break length"), 
+      React.createElement("div", { id: "break-selector" }, 
+      React.createElement("i", { id: "break-decrement", class: "fas fa-chevron-circle-down", onClick: this.props.breakDecrement }), 
+      React.createElement("div", { id: "break-length" }, this.props.breakLength), 
       React.createElement("i", { id: "break-increment", class: "fas fa-chevron-circle-up", onClick: this.props.breakIncrement }))));
-
-
-
   }}
-
 
 class App extends React.Component {
   constructor(props) {
@@ -78,7 +62,6 @@ class App extends React.Component {
       timerLabel: 'Session',
       secondsRight: 0,
       currentLength: 25 };
-
 
     this.sessionDecrement = this.sessionDecrement.bind(this);
     this.sessionIncrement = this.sessionIncrement.bind(this);
@@ -97,7 +80,6 @@ class App extends React.Component {
         currentLength: this.state.sessionLength - 1,
         secondsLeft: 0,
         secondsRight: 0 }));
-
     }
     storedSessionLength = this.state.sessionLength;
   }
@@ -108,7 +90,6 @@ class App extends React.Component {
         currentLength: this.state.sessionLength + 1,
         secondsLeft: 0,
         secondsRight: 0 }));
-
     }
     storedSessionLength = this.state.sessionLength;
   }
@@ -129,18 +110,15 @@ class App extends React.Component {
         if (this.state.secondsRight > 0) {
           this.setState(state => ({
             secondsRight: state.secondsRight - 1 }));
-
         } else if (this.state.secondsLeft > 0) {
           this.setState(state => ({
             secondsRight: state.secondsRight + 9,
             secondsLeft: state.secondsLeft - 1 }));
-
         } else {
           this.setState(state => ({
             secondsRight: state.secondsRight + 9,
             secondsLeft: state.secondsLeft + 5,
             currentLength: state.currentLength - 1 }));
-
         }
       } else if (this.state.currentLength + this.state.secondsRight + this.state.secondsLeft === 1) {
 
@@ -149,12 +127,10 @@ class App extends React.Component {
           this.setState(state => ({
             timerLabel: 'Break',
             currentLength: this.state.breakLength }));
-
         } else {
           this.setState(state => ({
             timerLabel: 'Session',
             currentLength: this.state.breakLength }));
-
         }
         this.playSound();
       }
@@ -179,7 +155,6 @@ class App extends React.Component {
       timerLabel: 'Session',
       secondsRight: 0,
       currentLength: 25 }));
-
   }
 
   breakDecrement() {
@@ -198,18 +173,15 @@ class App extends React.Component {
 
       storedBreakLength = this.state.breakLength;
     }
-
   }
 
   render() {
-    return /*#__PURE__*/(
-      React.createElement("div", { id: "container" }, /*#__PURE__*/
-      React.createElement("div", { id: "title" }, "25 + 5 timer"), /*#__PURE__*/
-      React.createElement(Break, { breakLength: this.state.breakLength, breakDecrement: this.breakDecrement, breakIncrement: this.breakIncrement }), /*#__PURE__*/
-      React.createElement(Session, { sessionLength: this.state.sessionLength, sessionDecrement: this.sessionDecrement, sessionIncrement: this.sessionIncrement }), /*#__PURE__*/
+    return (
+      React.createElement("div", { id: "container" }, 
+      React.createElement("div", { id: "title" }, "25 + 5 timer"), 
+      React.createElement(Break, { breakLength: this.state.breakLength, breakDecrement: this.breakDecrement, breakIncrement: this.breakIncrement }), 
+      React.createElement(Session, { sessionLength: this.state.sessionLength, sessionDecrement: this.sessionDecrement, sessionIncrement: this.sessionIncrement }), 
       React.createElement(Timer, { timerLabel: this.state.timerLabel, playing: this.state.playing, currentLength: this.state.currentLength, secondsRight: this.state.secondsRight, secondsLeft: this.state.secondsLeft, startStop: this.startStop, reset: this.reset })));
-
-
   }}
 
-ReactDOM.render( /*#__PURE__*/React.createElement(App, { class: "App" }), document.getElementById('root'));
+ReactDOM.render( React.createElement(App, { class: "App" }), document.getElementById('root'));

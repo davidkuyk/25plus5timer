@@ -5,6 +5,10 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
+#container {
+  text-align: center;
+}
+
 #title {
   color: #f3f3f3;
   margin-top: 10vh;

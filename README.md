@@ -19,7 +19,7 @@ A simple Pomodoro-style timer built with React.js
 
 ## Future Feature Ideas
 
-- Refactor with modern React hooks
+- Add custom sounds
 
 ## Installation
 
